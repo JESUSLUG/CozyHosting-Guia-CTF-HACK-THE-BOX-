@@ -35,9 +35,8 @@ sudo nano /etc/hosts
 
 
 
-##NMAP 
+## NMAP 
 
-- **`Escanear`**: Hacer un escaneo Nmap con las opciones -sS -sV -p- en la dirección IP 10.10.11.230  es mportante en la fase de reconocimiento y enumeración de un CTF (Capture The Flag) en Hack The Box o en cualquier otro entorno de pruebas de penetración. 
 ```
 nmap -sS -sV -p- 10.10.11.230 -o cozyhosting
 ```
@@ -48,3 +47,7 @@ nmap -sS -sV -p- 10.10.11.230 -o cozyhosting
 - **`Detección de servicios y versiones (-sV)`**: La opción -sV le permite a Nmap intentar detectar el servicio que se ejecuta en un puerto y, en algunos casos, incluso la versión específica del software. Esto es útil para identificar qué servicios están en funcionamiento en la máquina objetivo y conocer las vulnerabilidades asociadas a esas versiones específicas.
 
 - **`Generación de un informe de resultados (-o)`**:Al utilizar la opción -o seguida de un nombre de archivo, puedes generar un informe de resultados que contiene los detalles del escaneo. Esto te permite registrar la información que obtuviste y revisarla posteriormente. Además, es útil para documentar tu progreso y compartir información con otros miembros de tu equipo en CTF.
+
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/b43b57da-65ea-4b44-8ae8-1c43d3c69ccd)
+- **`Resultado(-o)`**:Hacer un escaneo Nmap con las opciones -sS -sV -p- en la dirección IP 10.10.11.230  es mportante en la fase de reconocimiento y enumeración de un CTF (Capture The Flag) en Hack The Box o en cualquier otro entorno de pruebas de penetración. 
+

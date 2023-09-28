@@ -1,4 +1,4 @@
-# CozyHosting-Guia-CTF-HACK-THE-BOX
+# CozyHosting Guia
 
 En este repositorio se busca explicar paso a paso la búsqueda de la bandera. Pensé en crear esto para las personas nuevas en el mundo del hacking ético y que no se sientan tan abrumadas con tantos conceptos.
 

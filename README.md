@@ -70,9 +70,9 @@ dirsearch -u http://cozyhosting.htb/
   python3 dirsearch.py -u http://cozyhosting.htb/
    ```
 - Ya acabo el trabajo de Dirsearch, tendras un resultado como este
-- ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/4869a22d-4963-4b92-85ed-0fa89b44fc11)}
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/4869a22d-4963-4b92-85ed-0fa89b44fc11)}
 - Analizamos y encontraremos la siguiente ruta
-- ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/c3df4a7e-dfb8-4fff-9b24-f90132d437d8)
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/c3df4a7e-dfb8-4fff-9b24-f90132d437d8)
 - A la cual accederemos con la URL que ya teniamos de CozyHosting
 
 

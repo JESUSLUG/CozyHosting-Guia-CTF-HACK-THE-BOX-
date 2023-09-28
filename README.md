@@ -97,8 +97,7 @@ dirsearch -u http://cozyhosting.htb/
 - Ya teniendo el paso anterior. Toca escuchar las entradas del sitio web. Usaremos la herramienta de Burpsuite. Esta herramienta nos ayuda a escuchar el trafico que sufre el proxy. Para esto primero necesitamos.
   **`Cambiar el puerto proxy de nuestro navegador`**:La herramineta escucha por medio de la 127.0.0.1 y el puerto 8080, lo que necesitamos hacer es que en nuestro navegador agregaremos estas configuraciones
   ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/7b2d3b5c-90f8-4eb4-8db1-e471dbce261a)
-
-  
+- Hacemos pruebas. Podemos repetir el paso anterior pero con el Burpsuite activo y ver como funciona. 
 
   
 

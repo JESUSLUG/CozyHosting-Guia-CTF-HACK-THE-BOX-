@@ -12,7 +12,7 @@ Lo primero que haremos es identificar nuestra máquina que querremos atacar, que
 
 Para comenzar, necesitamos editar nuestro archivo `/etc/hosts` utilizando el siguiente comando:
 
-```bash
+```
 sudo nano /etc/hosts
 ```
 

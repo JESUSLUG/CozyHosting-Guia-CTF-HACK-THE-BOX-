@@ -49,5 +49,27 @@ nmap -sS -sV -p- 10.10.11.230 -o cozyhosting
 - **`Generación de un informe de resultados (-o)`**:Al utilizar la opción -o seguida de un nombre de archivo, puedes generar un informe de resultados que contiene los detalles del escaneo. Esto te permite registrar la información que obtuviste y revisarla posteriormente. Además, es útil para documentar tu progreso y compartir información con otros miembros de tu equipo en CTF.
 
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/b43b57da-65ea-4b44-8ae8-1c43d3c69ccd)
-- **`Resultado(-o)`**:Hacer un escaneo Nmap con las opciones -sS -sV -p- en la dirección IP 10.10.11.230  es mportante en la fase de reconocimiento y enumeración de un CTF (Capture The Flag) en Hack The Box o en cualquier otro entorno de pruebas de penetración. 
+- **`Resultado(-o)`**:Hacer un escaneo Nmap con las opciones -sS -sV -p- en la dirección IP 10.10.11.230  es mportante en la fase de reconocimiento y enumeración de un CTF (Capture The Flag) en Hack The Box o en cualquier otro entorno de pruebas de penetración.
+
+
+## Dirsearch 
+```
+dirsearch -u http://cozyhosting.htb/
+```
+
+- **`Deteccion de rutas`**:Esta herramienta se utiliza para buscar posibles rutas y recursos accesibles en un sitio web o servidor web. Aquí te explico por qué es importante utilizar dirsearch en un CTF de Hack The Box o en cualquier escenario de pruebas de penetración. Con poner la url del objetivo, ya podremos acceder a sus posibles rutas.
+
+- - **`Si llegaras a tener problemas con el Dirsearch`**: Sigue los siguientes comando si el mismo Kali te niega instalarlo. 
+  ```
+    git clone https://github.com/maurosoria/dirsearch.git
+  ```
+  ```
+  cd dirsearch
+  ```
+  ```
+  python3 dirsearch.py -u http://cozyhosting.htb/
+   ```
+
+
+
 

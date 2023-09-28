@@ -1,6 +1,6 @@
 ¡Por supuesto! A continuación, te proporciono el texto con formato en Markdown para que se vea mejor en GitHub:
 
-```markdown
+
 # CozyHosting-Guia-CTF-HACK-THE-BOX
 
 En este repositorio se busca explicar paso a paso la búsqueda de la bandera. Pensé en crear esto para las personas nuevas en el mundo del hacking ético y que no se sientan tan abrumadas con tantos conceptos.
@@ -13,7 +13,7 @@ En este repositorio se busca explicar paso a paso la búsqueda de la bandera. Pe
 
 Para comenzar, necesitamos editar nuestro archivo `/etc/hosts` utilizando el siguiente comando:
 
-```bash
+```
 sudo nano /etc/hosts
 ```
 

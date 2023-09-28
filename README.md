@@ -32,3 +32,19 @@ sudo nano /etc/hosts
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/59792084-eb50-4ae9-939a-b4095ad38a13)
 
 *Para comprobar que hicimos todo bien, podemos entrar a http://cozyhosting.htb. en resumen utilizar el comando "sudo nano /etc/hosts" es importante para personalizar la resolución de nombres en tu sistema local y permitirte acceder a máquinas o servicios específicos en entornos de CTF como Hack The Box, donde es común que los nombres de host y direcciones IP se utilicen de manera no convencional.*
+
+
+
+##NMAP 
+
+- **`Escanear`**: Hacer un escaneo Nmap con las opciones -sS -sV -p- en la dirección IP 10.10.11.230  es mportante en la fase de reconocimiento y enumeración de un CTF (Capture The Flag) en Hack The Box o en cualquier otro entorno de pruebas de penetración. 
+```
+nmap -sS -sV -p- 10.10.11.230 -o cozyhosting
+```
+- **`Identificación de puertos abiertos (-p-)`**:La opción -p- le indica a Nmap que escanee todos los puertos posibles en el rango completo (1-65535). Esto es importante porque, en muchos casos, no sabes qué puertos pueden estar abiertos en la máquina objetivo. Al escanear todos los puertos, te aseguras de no pasar por alto ningún servicio o aplicación que pueda estar en ejecución.
+
+- **`Escaneo de tipo SYN (-sS)`**:El escaneo de tipo SYN es un escaneo sigiloso y menos intrusivo. Envía paquetes SYN a los puertos y espera respuestas. Si recibe una respuesta SYN/ACK, sabe que el puerto está abierto. Si recibe un RST (restablecimiento) en respuesta, el puerto está cerrado. Este tipo de escaneo es útil para determinar la accesibilidad de los puertos sin establecer completamente la conexión, lo que podría dejar rastros en el servidor objetivo.
+
+- **`Detección de servicios y versiones (-sV)`**: La opción -sV le permite a Nmap intentar detectar el servicio que se ejecuta en un puerto y, en algunos casos, incluso la versión específica del software. Esto es útil para identificar qué servicios están en funcionamiento en la máquina objetivo y conocer las vulnerabilidades asociadas a esas versiones específicas.
+
+- **`Generación de un informe de resultados (-o)`**:Al utilizar la opción -o seguida de un nombre de archivo, puedes generar un informe de resultados que contiene los detalles del escaneo. Esto te permite registrar la información que obtuviste y revisarla posteriormente. Además, es útil para documentar tu progreso y compartir información con otros miembros de tu equipo en CTF.

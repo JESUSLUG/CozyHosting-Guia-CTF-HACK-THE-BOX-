@@ -73,9 +73,34 @@ dirsearch -u http://cozyhosting.htb/
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/4869a22d-4963-4b92-85ed-0fa89b44fc11)}
 - Analizamos y encontraremos la siguiente ruta
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/c3df4a7e-dfb8-4fff-9b24-f90132d437d8)
-- A la cual accederemos con la URL que ya teniamos de CozyHosting
+- A la cual accederemos con la URL que ya teniamos de CozyHosting. Lo que vemos son las sesiones y notamos que la de kanderson es la unica que no dice "no autorizado" y con un cookie que usaremos para engañar al login.
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/76305964-d943-4ac7-ac57-8df637e72b75)
+
+## Inyección de Cookies
+- Ya teniendo la informacion anterior, ya podemos acceder al panel. Esto lo haremos por medio de la inyeccion por cookies.
+ **`¿Que es la inyeccion por cookies?**: se refiere a la manipulación maliciosa o indebida de las cookies en una aplicación web. Las cookies son pequeños fragmentos de datos que un servidor web envía al navegador del usuario para almacenar información, como sesiones de usuario, preferencias y estados de autenticación. Cuando las cookies no se manejan adecuadamente, pueden surgir vulnerabilidades que permiten a un atacante inyectar o modificar cookies para obtener un acceso no autorizado o realizar ataques dirigidos.
+- Esto eran lo datos que habiamos sacados de http://cozyhosting.htb/actuator/sessions
+- Ahora entramos a http://cozyhosting.htb/admin (Esta URL la sacamos del paso anterior)
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/3c771f04-ef6a-4945-b340-6d6ca45bef60)
+
+- Ingrsamos "inspeccionar codigo" y accedemos a Storange
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/410902b4-cd14-456c-aa82-9a0b843073bf)
+- Remplazamos el valor que tiene , por el que sacamos en el paso anterior, dentro de http://cozyhosting.htb/actuator/sessions y la cookie de Kanderson.
+- Ya agregada, refrescamos
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/e6f834a9-6cee-4b8c-b18f-11f37db5d4f6)
+- luego ponemos una usario y contraseña que sea igual por ambos lados. Usario:123 Contraseña:123
+- Si hicimos todo bien ahora estamos dentro
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/94d52f93-8cc9-4b48-841d-19d6952e00f8)
 
 
+## Burpsuite
+- Ya teniendo el paso anterior. Toca escuchar las entradas del sitio web. Usaremos la herramienta de Burpsuite. Esta herramienta nos ayuda a escuchar el trafico que sufre el proxy. Para esto primero necesitamos.
+  **`Cambiar el puerto proxy de nuestro navegador`**:La herramineta escucha por medio de la 127.0.0.1 y el puerto 8080, lo que necesitamos hacer es que en nuestro navegador agregaremos estas configuraciones
+  ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/7b2d3b5c-90f8-4eb4-8db1-e471dbce261a)
+
+  
+
+  
 
 
 

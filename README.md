@@ -30,6 +30,3 @@ sudo nano /etc/hosts
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/e9507dcf-d020-4aad-95be-1508f01a9262)
 
 *(para guardar con Ctrl+O, Ctrl+X, yes, te preguntará si quieres cambiar el nombre, simplemente dale enter)*
-```
-
-Este texto utiliza formato Markdown para hacer que el contenido sea más legible y estéticamente agradable en GitHub. Puedes copiar y pegar este texto en tu repositorio de GitHub para compartirlo con otros usuarios.

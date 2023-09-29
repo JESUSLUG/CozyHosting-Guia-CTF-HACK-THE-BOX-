@@ -207,8 +207,15 @@ SELECT * FROM users;
 
 - **`Deteccion de rutas`**:Hashcat es una potente herramienta de código abierto diseñada para realizar ataques de fuerza bruta y recuperar contraseñas de hashes. Es ampliamente utilizado en el campo de la seguridad informática y la auditoría de seguridad para probar la resistencia de las contraseñas y evaluar la seguridad de sistemas y aplicaciones.
   
+- Ahora te recomiendo que descargues la wordlist para la fuerza bruta.
+```
+git clone https://github.com/danielmiessler/SecLists.git
+``` 
 - Lo que haremos sera copiar la contraseña hasheada y la pegaremos en el siguiente hash, quedando algo asi.
 ```
 echo '$2a$10$SpKYdHLB0FOaT7n3x72wtuS0yR8uqqbNNpIPjUb2MZib3H9kVO8dm' >hashes
+```
+```
+hashcat -m 3200 hashes --wordlist /usr/share/wordlists/rockyou.txt --force
 ```
 

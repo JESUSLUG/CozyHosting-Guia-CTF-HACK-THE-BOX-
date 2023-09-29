@@ -275,7 +275,10 @@ sudo -l
   ```
 
 - Banderas
+
+
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/8851bdf8-2e18-4c2f-bd7e-80e37910aea5)
+
 
 
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/a0d256da-f3a4-4c78-9160-557c8fe4fb11)

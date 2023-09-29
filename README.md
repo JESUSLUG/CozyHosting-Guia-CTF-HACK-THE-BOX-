@@ -82,6 +82,13 @@ dirsearch -u http://cozyhosting.htb/
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/c3df4a7e-dfb8-4fff-9b24-f90132d437d8)
 - A la cual accederemos con la URL que ya teniamos de CozyHosting. Lo que vemos son las sesiones y notamos que la de kanderson es la unica que no dice "no autorizado" y con un cookie que usaremos para engañar al login.
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/76305964-d943-4ac7-ac57-8df637e72b75)
+- Leyendo todo lo que nos tiro, nos interesa
+ ```
+ http://cozyhosting.htb/actuator/sessions
+ ```
+ ```
+http://cozyhosting.htb/admin
+ ```
 
 ## Inyección de Cookies
 - Ya teniendo la informacion anterior, ya podemos acceder al panel. Esto lo haremos por medio de la inyeccion por cookies.

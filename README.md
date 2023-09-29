@@ -97,7 +97,7 @@ A continuación, te explicaré cómo realizar la inyección de cookies paso a pa
 
 1. **Obtención de Datos**: El primer paso es obtener la información necesaria para llevar a cabo la inyección de cookies. En tu caso, esta información proviene de [http://cozyhosting.htb/actuator/sessions](http://cozyhosting.htb/actuator/sessions).
 
-2. **Acceso al Panel**: Una vez que tengas los datos requeridos, dirígete a [http://cozyhosting.htb/admin](http://cozyhosting.htb/admin). Esta URL se obtuvo en el paso anterior.
+2. **Acceso al Panel**: Una vez que tengas los datos requeridos, dirígete a [http://cozyhosting.htb/admin](http://cozyhosting.htb/admin). Esta URL se obtuvo en el paso anterior. *Intenta iniciar sesion para que las cookies se generen, pon un usariop y contraseña erronia* 
 
 ![imagen](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/3c771f04-ef6a-4945-b340-6d6ca45bef60)
 

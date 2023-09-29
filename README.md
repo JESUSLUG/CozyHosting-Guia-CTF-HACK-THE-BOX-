@@ -126,10 +126,15 @@ dirsearch -u http://cozyhosting.htb/
 - Si todo salio bien, nos saldra algo asi. Lo que significa que se descargo con exito.
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/76099734-7371-4c0e-b4e9-d967a80c2cfe)
 - Luego buscamos donde esta el archivo con
-```pwd```       
-- ya sabiendo lo abrimos
-  ```cd /root```
-```java -jar cloudhosting.jar```
+```ls```
+- El archivo se encuentra descargado
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/648326ce-04f0-478f-93a7-0f40a50fd1c1)
+-La maquina que iniciamos nos lo confirma
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/a4f32b05-7bfa-4d10-b4ca-271be93cf83a)
+
+- Al abrir el archvivo nos muestra lo siguiente
+- 
+
 
       
 

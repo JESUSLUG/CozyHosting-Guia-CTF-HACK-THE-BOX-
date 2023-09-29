@@ -1,4 +1,5 @@
 # CozyHosting Guia
+![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/435b71f8-991f-49d3-a522-834223f67536)
 
 En este repositorio se busca explicar paso a paso la búsqueda de la bandera. Pensé en crear esto para las personas nuevas en el mundo del hacking ético y que no se sientan tan abrumadas con tantos conceptos.
 Hay varios conceptos importantes y herramientas que son muy utiles.

@@ -1,10 +1,12 @@
 # CozyHosting Guia
 
 En este repositorio se busca explicar paso a paso la búsqueda de la bandera. Pensé en crear esto para las personas nuevas en el mundo del hacking ético y que no se sientan tan abrumadas con tantos conceptos.
+Hay varios conceptos importantes y herramientas que son muy utiles.
 
-**Lo primero que haremos es identificar nuestra máquina que querremos atacar, que en este caso es la CozyHosting. Esta tiene la siguiente información:**
+Lo primero que haremos es identificar nuestra máquina que querremos atacar, que en este caso es la CozyHosting. Esta tiene la siguiente información:
 
 - **IP: 10.10.11.230**
+Ya con esta informacion procedemos a agregarla a nuestra lista de hosts para poder acceder a su sitio web
 
 ## Editar el archivo /etc/hosts
 
@@ -33,7 +35,12 @@ sudo nano /etc/hosts
 
 *Para comprobar que hicimos todo bien, podemos entrar a http://cozyhosting.htb. en resumen utilizar el comando "sudo nano /etc/hosts" es importante para personalizar la resolución de nombres en tu sistema local y permitirte acceder a máquinas o servicios específicos en entornos de CTF como Hack The Box, donde es común que los nombres de host y direcciones IP se utilicen de manera no convencional.*
 
-
+## Ifconfig 
+- Antes de todo debemos agregar saber nuestra ip, para futuro pasos que haremos en la guia.
+```
+ifconfig
+```
+- De toda la informacion, la que nos importa es la que dice inet. Apunta esa ip, deberia empezar con 10.10...
 
 ## NMAP 
 
@@ -52,13 +59,13 @@ nmap -sS -sV -p- 10.10.11.230 -o cozyhosting
 - **`Resultado(-o)`**:Hacer un escaneo Nmap con las opciones -sS -sV -p- en la dirección IP 10.10.11.230  es mportante en la fase de reconocimiento y enumeración de un CTF (Capture The Flag) en Hack The Box o en cualquier otro entorno de pruebas de penetración.
 
 
+
 ## Dirsearch 
 ```
 dirsearch -u http://cozyhosting.htb/
 ```
 
-- **`Deteccion de rutas`**:Esta herramienta se utiliza para buscar posibles rutas y recursos accesibles en un sitio web o servidor web. Aquí te explico por qué es importante utilizar dirsearch en un CTF de Hack The Box o en cualquier escenario de pruebas de penetración. Con poner la url del objetivo, ya podremos acceder a sus posibles rutas.
-
+- **`Deteccion de rutas`**:Esta herramienta se utiliza para buscar posibles rutas y recursos accesibles en un sitio web o servidor web. 
 - - **`Si llegaras a tener problemas con el Dirsearch`**: Sigue los siguientes comando si el mismo Kali te niega instalarlo. 
   ```
     git clone https://github.com/maurosoria/dirsearch.git
@@ -96,8 +103,11 @@ dirsearch -u http://cozyhosting.htb/
 ## Burpsuite
 - Ya teniendo el paso anterior. Toca escuchar las entradas del sitio web. Usaremos la herramienta de Burpsuite. Esta herramienta nos ayuda a escuchar el trafico que sufre el proxy. Para esto primero necesitamos.
   **`Cambiar el puerto proxy de nuestro navegador`**:La herramineta escucha por medio de la 127.0.0.1 y el puerto 8080, lo que necesitamos hacer es que en nuestro navegador agregaremos estas configuraciones
+- Para  ellos debemos ir a settings en el firefox y ir hasta la parte de abajo.
+- Luego entramos y configuramos lo siguiente
   ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/7b2d3b5c-90f8-4eb4-8db1-e471dbce261a)
-- Hacemos pruebas. Podemos repetir el paso anterior pero con el Burpsuite activo y ver como funciona. 
+- Hacemos pruebas. Podemos repetir el paso anterior pero con el Burpsuite activo y ver como funciona.
+*Para ver el trafico del proxy, accedemos al mismo y le damos al boton naranaj que dice of/on.  
 
 ## inyección de shell o shell reverso
 -Si revisamos la pagina, nos daremos cuenta que hay un apartado de SSH. Lo cual nos puede servir para entrar directamente a su servicio por medio de inyección de shell y Burpsuite
@@ -130,7 +140,10 @@ dirsearch -u http://cozyhosting.htb/
 *Solo como dato, el puerto puede variar, eso ya depende del gusto de cada usario y de lo que vayan encontrando*
 
 
-## cloudhosting.jar
+## Cloudhosting.jar y Unzip
+
+ - **`¿Que es unzip?`**: es un comando en sistemas Unix y Linux que se utiliza para descomprimir archivos en formato ZIP. Los archivos ZIP son archivos comprimidos que pueden contener uno o varios archivos o directorios comprimidos en un solo archivo. El comando unzip se utiliza para extraer el contenido de estos archivos comprimidos, restaurándolos a su estado original.
+- ya con algo de contexto, continuamos.
 - Revisamos el archivo.
 - Si intentamos hacerle un unzip, nos lo negara. Asi que haremos lo siguiente
 
@@ -269,11 +282,25 @@ sudo -l
 ```
 ![image](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/2d258608-93f8-4a04-b62b-7589f0aee715)
 
-- metemos el siguiente comando
+- Aunque tenemos acceso, no tenemos todas las libertades.Para ello metemos el siguiente comando. Este es un comando ProxyCommand que ejecuta una shell en segundo plano con entradas y salidas redirigidas.
+- Esto nos da la libertad de poder entrar a donde querramos.
   ```
   sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x
   ```
-
+- ahora escribimos whoami. El comando whoami simplemente muestra el nombre del usuario que está actualmente conectado. Cuando se ejecuta después de establecer una conexión SSH, muestra el nombre de usuario con el que te has autenticado a través de SSH en el sistema remoto.
+```
+whoami
+```
+- Las preguntas que nos muestra el Hack the box, son sobre las banderas de usuario y root. Para ello buscamos con lo siguiente
+  ```
+   cat /root/root.txt
+  ```
+  ```
+  ls 
+  ```
+  ```
+  cat user.txt
+  ```
 - Banderas
 
 

@@ -5,7 +5,7 @@
 ## Índice
 
 1. [Introducción](#introducción)
-2. [Ifconfig ](#Editar el archivo /etc/hosts)
+2. [Editar el archivo /etc/hosts](#Editar el archivo /etc/hosts).
 3. [Ifconfig ](#Ifconfig )
 4. [Conclusiones](#conclusiones)
 

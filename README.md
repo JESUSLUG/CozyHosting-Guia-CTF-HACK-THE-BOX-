@@ -1,6 +1,16 @@
 # Guía de CozyHosting
 ![imagen](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/435b71f8-991f-49d3-a522-834223f67536)
 
+
+## Índice
+
+1. [Introducción](#introducción)
+2. [Ifconfig ](#Editar el archivo /etc/hosts)
+3. [Ifconfig ](#Ifconfig )
+4. [Conclusiones](#conclusiones)
+
+## introducción
+
 En este repositorio, buscamos explicar paso a paso la búsqueda de las banderas del reto CozyHosting de HackTheBox. 
 He creado esto para las personas nuevas en el mundo del hacking ético para que no se sientan abrumadas por tantos conceptos. Hay varios conceptos importantes y herramientas que son muy útiles.
 

@@ -7,7 +7,16 @@
 1. [Introducción](#introducción)
 2. [Editar el archivo /etc/hosts](#EditarArchivosHosts)
 3. [Ifconfig ](#Ifconfig )
-4. [Conclusiones](#conclusiones)
+4. [Ifconfig ](#Ifconfig )
+5. [NMAP](#NMAP)
+6. [Dirsearch](#Dirsearch)
+7. [Inyección de Cookies](#InyeccióndeCookies)
+8. [Burp Suite](#BurpSuite)
+9. [Inyección de Shell o Shell Reverso](#InyeccióndeShelloShellReverso)
+10. [Cloudhosting.jar y Unzip](#Cloudhosting.jaryUnzip)
+11. [PostgreSQL](#PostgreSQL)
+12. [Hashcat](#Hashcat)
+13. [ ParteFinal y  ProxyCommand]( ParteFinal)
 
 ## introducción
 
@@ -101,7 +110,7 @@ http://cozyhosting.htb/admin
  ```
 
 
-## Inyección de Cookies
+## InyeccióndeCookies
 
 La inyección de cookies es un método que nos permite acceder al panel utilizando información previamente obtenida. Pero, ¿qué significa exactamente inyección de cookies? Se trata de una técnica que implica la manipulación maliciosa o indebida de las cookies en una aplicación web. Las cookies son pequeños fragmentos de datos que un servidor web envía al navegador del usuario para almacenar información, como sesiones de usuario, preferencias y estados de autenticación. Cuando las cookies no se manejan adecuadamente, pueden surgir vulnerabilidades que permiten a un atacante inyectar o modificar cookies para obtener acceso no autorizado o realizar ataques dirigidos.
 
@@ -132,7 +141,7 @@ A continuación, te explicaré cómo realizar la inyección de cookies paso a pa
 Siguiendo estos pasos, podrás llevar a cabo una inyección de cookies de manera efectiva.
 
 
-## Burp Suite
+## BurpSuite
 
 Ahora que hemos completado los pasos anteriores, es el momento de escuchar las solicitudes y respuestas del sitio web. Para esta tarea, utilizaremos la herramienta Burp Suite. Esta herramienta nos permite interceptar y analizar el tráfico web que pasa a través de un proxy. Para empezar, necesitamos configurar nuestro navegador web para que utilice Burp Suite como proxy. Aquí tienes los pasos a seguir:
 
@@ -167,7 +176,7 @@ Para ver el tráfico que pasa a través del proxy en Burp Suite, sigue estos pas
 Siguiendo estos pasos, podrás utilizar Burp Suite para interceptar y analizar el tráfico web que pasa a través de tu navegador. Esto es fundamental para llevar a cabo pruebas de seguridad y análisis de vulnerabilidades en aplicaciones web.
 
 
-## Inyección de Shell o Shell Reverso
+## InyeccióndeShelloShellReverso
 
 Si examinamos la página, notaremos que hay una sección de SSH, lo que nos da la oportunidad de acceder directamente a su servicio mediante una inyección de shell y Burp Suite.
 
@@ -251,7 +260,7 @@ Siguiendo estos pasos, podemos realizar una inyección de shell o shell reverso 
 
 
 
-## Cloudhosting.jar y Unzip
+## Cloudhosting.jaryUnzip
 
 **¿Qué es `unzip`?**: `unzip` es un comando utilizado en sistemas Unix y Linux para descomprimir archivos en formato ZIP. Los archivos ZIP son archivos comprimidos que pueden contener uno o varios archivos o directorios comprimidos en un solo archivo. El comando `unzip` se utiliza para extraer el contenido de estos archivos comprimidos, restaurándolos a su estado original.
 
@@ -425,7 +434,7 @@ Hemos encontrado que el nombre de usuario es "josh".
 
 Entonces, el nombre de usuario es "josh" y la contraseña es "manchesterunited".
 
-## Parte final
+## ParteFinal
 
 Nos basamos en una estructura común de SSH para acceder. Sabemos que la dirección IP de la máquina que estamos atacando es 10.10.11.230, por lo que escribimos el siguiente comando para iniciar una conexión SSH:
 

@@ -439,15 +439,32 @@ sudo -l
 
 Aunque tenemos acceso, no tenemos todas las libertades. Para obtener más libertad, ejecutamos el siguiente comando. Este es un comando ProxyCommand que ejecuta una shell en segundo plano con entradas y salidas redirigidas, lo que nos da la libertad de acceder a donde queramos.
 
+
+
 ```
 sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x
 ```
+* Lo que hace este comando es potencialmente peligroso y podría permitir la ejecución de comandos arbitrarios en el servidor SSH de destino, ya que se está utilizando un ProxyCommand malicioso para abrir un nuevo shell y redirigir la entrada y salida estándar. 
+Ahora escribimos el comando `whoami`, que simplemente muestra el nombre del usuario actualmente conectado. Cuando se ejecuta después de establecer una conexión SSH, muestra el nombre de usuario con el que te has autenticado a través de SSH en el sistema remoto *
+    sudo ssh: Esto inicia una conexión SSH utilizando el comando ssh con privilegios elevados, ya que se ejecuta con sudo. sudo permite que un usuario ejecute comandos como superusuario o como otro usuario, dependiendo de su configuración.
 
-Ahora escribimos el comando `whoami`, que simplemente muestra el nombre del usuario actualmente conectado. Cuando se ejecuta después de establecer una conexión SSH, muestra el nombre de usuario con el que te has autenticado a través de SSH en el sistema remoto:
+  -  -o ProxyCommand=';sh 0<&2 1>&2': Esta es una opción de configuración (-o) para SSH que establece el comando que se utilizará como proxy para la conexión SSH. En este caso, el comando es ;sh 0<&2 1>&2. Veamos esto más detenidamente:
+
+        ; es un separador de comandos en la mayoría de las shells de Unix. En este contexto, se usa para ejecutar múltiples comandos en una línea.
+
+        - sh es el comando de shell. En este caso, se está ejecutando un nuevo proceso de shell.
+
+   -     0<&2 y 1>&2 son redirecciones de entrada y salida. 0 representa la entrada estándar (stdin), 1 representa la salida estándar (stdout), y 2 representa la salida de error estándar (stderr).
+
+       - En conjunto, 0<&2 1>&2 redirige la entrada estándar (stdin) hacia la salida de error estándar (stderr), lo que básicamente mezcla la entrada y la salida en el flujo de error.
+
+-    x: Esta es la dirección o el nombre del host al que se intenta conectar utilizando SSH.
+
 
 ```
 whoami
 ```
+* utilizado para imprimir el nombre de usuario efectivo del usuario actual cuando se invoca. *
 
 Para encontrar las banderas, utilizamos los siguientes comandos:
 

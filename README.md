@@ -232,33 +232,8 @@ Podemos verificar los archivos disponibles utilizando el comando `ls`. Observamo
 
 
 -Les adjunto un digrama del proceso
-+-------------------+           +----------------------+
-| Tu Máquina        |           | Sistema Objetivo     |
-| (Tu IP)           |           |                      |
-+-------------------+           +----------------------+
-       ↓|↑                            |↓
-       ↓|↑                           ↑|
-       ↓|↑                            |↓
-       ↓|↑                           ↑|
-       ↓|   +---------------------------------+
-       ↓|   | Comando de Shell Inverso        |
-       ↓|   |                                 |
-       ↓| --> kanderson;                      |
-       ↓|   | echo${IFS}"ELNUMEROQUETEDIO_... | 
-       ↓|   +---------------------------------+
-       ↓|↑                            |
-       ↓|↑                           ↑|
-       ↓|↑                            |↓
-       ↓|↑                           ↑|
-       ↓|↑                            |↓
-       ↓|↑                           ↑|
-       ↓|↑                            |↓
-       ↓|   +-------------------+    ↑|
-       ↓|↑  |                   |     |↓
-        --->  Conexión de Shell Inverso  
-            |                   |
-            | nc -lnvp 4444     |
-            +-------------------+
+![imagen](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/ea2db25e-cf90-4755-a429-40081364228a)
+
 
 
 Siguiendo estos pasos, podemos realizar una inyección de shell o shell reverso para acceder al sistema de destino de manera efectiva.

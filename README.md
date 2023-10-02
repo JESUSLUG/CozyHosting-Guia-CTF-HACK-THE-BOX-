@@ -5,7 +5,7 @@
 ## Índice
 
 1. [Introducción](#introducción)
-2. [Editar el archivo /etc/hosts](#Editar el archivo /etc/hosts).
+2. [Editar el archivo /etc/hosts](#EditarArchivosHosts)
 3. [Ifconfig ](#Ifconfig )
 4. [Conclusiones](#conclusiones)
 
@@ -20,7 +20,7 @@ Lo primero que haremos es identificar la máquina que querremos atacar, que en e
 - **IP: 10.10.11.230**
   Con esta información, procedemos a agregarla a nuestra lista de hosts para poder acceder a su sitio web.
 
-## Editar el archivo /etc/hosts
+## EditarArchivosHosts
 
 Para comenzar, necesitamos editar nuestro archivo `/etc/hosts` utilizando el siguiente comando:
 

